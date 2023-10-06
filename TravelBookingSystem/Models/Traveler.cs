@@ -17,8 +17,8 @@ namespace TravelBookingSystem.Models
         [BsonElement("address")]
         public string Address { get; set; } = "Traveler Address";
 
-        [BsonElement("conatctNo")]
-        public string ConatctNo { get; set; } = "Traveler Contact Number";
+        [BsonElement("contactNo")]
+        public string ContactNo { get; set; } = "Traveler Contact Number";
 
         [BsonElement("nic")]
         public string NIC { get; set; } = "Traveler NIC";
