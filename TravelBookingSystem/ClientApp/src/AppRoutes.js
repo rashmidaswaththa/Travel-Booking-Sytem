@@ -1,6 +1,7 @@
 import  AddTraveler  from "./components/AddTraveler";
 import  EditTraveler from "./components/EditTraveler";
 import  Home  from "./components/Home";
+import TravelersList from "./components/TravelersList"
 
 const AppRoutes = [
   {
@@ -14,6 +15,10 @@ const AppRoutes = [
   {
     path: '/editTraveler',
     element: <EditTraveler />
+  },
+  {
+    path: '/travelerList',
+    element: <TravelersList />
   }
 ];
 
