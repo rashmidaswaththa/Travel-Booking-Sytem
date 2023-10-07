@@ -23,7 +23,7 @@ export default function AddTraveler(props) {
         } ).then( r =>
         {
             console.log( "Response from Backend for adding new traveler: ", r );
-            window.location = "/";
+            window.location = "/travelerList";
         } ).catch( e => console.log( "Error adding new traveler: ", e ) );
     };
 
