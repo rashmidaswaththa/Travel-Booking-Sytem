@@ -102,3 +102,65 @@ input {
 .btn.cancel {
     background-color: yellow;
 }
+
+/* CSS for Delete Modal */
+
+.delete-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.384);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-item {
+    background-color: white;
+    padding: 5px 15px 15px 15px;
+    border-radius: 9px;
+}
+
+.waiting {
+    cursor: wait;
+}
+
+.loading {
+    font-weight: bold;
+    animation-name: load;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    width: 0px;
+    overflow: hidden;
+}
+
+@keyframes load {
+    0% {
+        width: 0px;
+    }
+
+    50% {
+        width: 4px;
+    }
+
+    100% {
+        width: 15px;
+    }
+}
+
+tr.waiting,
+tr.waiting td {
+    border: none;
+    overflow: visible;
+}
+
+tr.waiting td {
+    width: 100px;
+}
+
+.hidden {
+    display: none;
+}
