@@ -9,12 +9,12 @@ namespace TravelBookingSystem.Services
     {
         private readonly IMongoCollection<Traveler> _travelerCollection;
 
-        public TravelerServices(IOptions<DatabaseSettings> settings)
+        public TravelerServices(IConfiguration config)
         {
-            var mongoClient = new MongoClient(settings.Value.Connection);
-            var mongoDb = mongoClient.GetDatabase(settings.Value.DatabaseName);
+            var mongoClient = new MongoClient(config.GetConnectionString("ConnectionDB"));
+            var mongoDb = mongoClient.GetDatabase("ticketbookingdb");
 
-            _travelerCollection = mongoDb.GetCollection<Traveler>(settings.Value.CollectionName);
+            _travelerCollection = mongoDb.GetCollection<Traveler>("traveler");
         }
 
         //get all travelers
