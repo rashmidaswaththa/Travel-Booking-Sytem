@@ -9,6 +9,7 @@ builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("C
 builder.Services.AddSingleton<TravelerServices>();
 builder.Services.AddSingleton<TrainServices>();
 builder.Services.AddSingleton<ScheduleService>();
+builder.Services.AddSingleton<UserServices>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
