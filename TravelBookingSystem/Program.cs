@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("ConnectionStrings"));
 builder.Services.AddSingleton<TravelerServices>();
+builder.Services.AddSingleton<UserServices>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
