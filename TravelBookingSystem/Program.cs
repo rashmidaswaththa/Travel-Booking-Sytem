@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("ConnectionStrings"));
 builder.Services.AddSingleton<TravelerServices>();
+builder.Services.AddSingleton<TrainServices>();
+builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

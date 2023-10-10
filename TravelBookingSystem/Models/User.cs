@@ -24,4 +24,5 @@ namespace TravelBookingSystem.Models
             [BsonElement("role")]
             public string Role { get; set; } = "User Role";
         }
+    }
 }
