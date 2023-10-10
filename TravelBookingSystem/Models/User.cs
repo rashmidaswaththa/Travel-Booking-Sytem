@@ -28,5 +28,7 @@ namespace TravelBookingSystem.Models
             [Required]
             public string Role { get; set; } = "User Role";
         }
-   
+
+    }
+
 }
