@@ -1,15 +1,14 @@
 import  Home  from "./components/Home";
 
 //Import for Traveler
-import  AddTraveler  from "./components/AddTraveler";
-import  EditTraveler from "./components/EditTraveler";
+import  AddTraveler  from "./components/Traveler/AddTraveler";
+import  EditTraveler from "./components/Traveler/EditTraveler";
+import TravelersList from "./components/Traveler/TravelersList"
 
-import TravelersList from "./components/TravelersList"
-
-import  Home  from "./components/Home";
-import TravelersList from "./components/TravelersList";
-import UsersList from "./components/UsersList";
-import AddUser from "./components/AddUser"
+//Import for User
+import UsersList from "./components/User/UsersList";
+import AddUser from "./components/User/AddUser";
+import EditUser from "./components/User/EditUser";
 
 //Imports for Train
 import AddTrain from "./components/Train/AddTrain";
@@ -53,12 +52,17 @@ const AppRoutes = [
     path: '/addSchedule',
     element: <AddSchedule />
   },
+  {
     path: '/userList',
     element: <UsersList/>
   },
   {
     path: '/addUser',
     element: <AddUser/>
+  },
+  {
+    path: '/editUser',
+    element: <EditUser/>
   }
 ];
 
