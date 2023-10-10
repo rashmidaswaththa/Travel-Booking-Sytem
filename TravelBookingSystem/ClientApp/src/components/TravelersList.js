@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React, { Component } from "react";
 
 
-export default function Home() {
+export default function TravelersList() {
 
     const [traveler, setTraveler] = useState([]);
     const [tid, setTid] = useState( "" );
