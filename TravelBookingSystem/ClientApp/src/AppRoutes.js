@@ -15,7 +15,9 @@ import TrainList from "./components/Train/TrainList";
 import EditTrain from "./components/Train/EditTrain";
 
 //Imports for Schedule
-import AddSchedule from "./components/Schedule/AddSchedule";
+import AddSchedule from "./components/Schedule/AddScheduleCheckTrainStatus";
+import ScheduleList from "./components/Schedule/ScheduleList";
+import EditSchedule from "./components/Schedule/EditSchedule";
 
 const AppRoutes = [
   {
@@ -49,6 +51,13 @@ const AppRoutes = [
   {
     path: '/addSchedule',
     element: <AddSchedule />
+  },
+  {
+    path: '/scheduleList',
+    element: <ScheduleList />
+  },{
+    path: '/editSchedule/:id',
+    element: <EditSchedule />
   },
   {
     path: '/userList',

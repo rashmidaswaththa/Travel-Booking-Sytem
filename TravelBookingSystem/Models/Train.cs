@@ -17,6 +17,9 @@ namespace TravelBookingSystem.Models
         [BsonElement("classes")]
         public List<TrainClass> Classes { get; set; } = new List<TrainClass>();
 
+        [BsonElement("assignStatus")]
+        public string AssignStatus { get; set; } = "Not assigned"; 
+
         public class TrainClass
         {
             [Required(ErrorMessage = "Class name is required.")]

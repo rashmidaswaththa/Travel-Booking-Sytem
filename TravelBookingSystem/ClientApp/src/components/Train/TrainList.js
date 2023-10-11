@@ -1,58 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function TrainList() {
     const [trains, setTrains] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState("");
     const navigate = useNavigate();
 
-    // Function to fetch the list of trains from the server
     const fetchTrains = async () => {
         try {
-            const response = await fetch('/api/trains'); // Replace with your API endpoint
+            const response = await fetch("/api/trains");
             if (response.ok) {
                 const data = await response.json();
                 setTrains(data);
                 setIsLoading(false);
             } else {
-                console.error('Failed to fetch trains');
+                console.error("Failed to fetch trains");
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.error("Error:", error);
         }
     };
 
-    // Function to handle editing a train
     const handleEditTrain = (id) => {
-        // Navigate to the edit page with the train's ID as a URL parameter
         navigate(`/editTrain/${id}`);
     };
 
     useEffect(() => {
         fetchTrains();
-    }, []); // Fetch data when the component mounts
+    }, []);
 
-    // Function to handle deleting a train
     const handleDeleteTrain = async (id) => {
-        const confirmDelete = window.confirm('Are you sure you want to delete this train record');
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this train record"
+        );
 
         if (confirmDelete) {
             try {
                 const response = await fetch(`/api/trains/${id}`, {
-                    method: 'DELETE',
+                    method: "DELETE",
                 });
 
                 if (response.ok) {
-                    // Remove the deleted train from the state
                     setTrains((prevTrains) => prevTrains.filter((train) => train.id !== id));
                 } else {
                     console.error(`Failed to delete train with ID ${id}`);
                 }
             } catch (error) {
-                console.error('Error:', error);
+                console.error("Error:", error);
             }
         }
     };
+
+    const filteredTrains = trains.filter((train) =>
+        train.id.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -61,17 +63,24 @@ function TrainList() {
     return (
         <div>
             <h2>Train List</h2>
+            <div>
+                <label htmlFor="search">Search Train ID:</label>
+                <input type="text" id="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+            </div>
             <table>
                 <thead>
                     <tr>
+                        <th>Train ID</th>
                         <th>Train Name</th>
                         <th>Class Details</th>
+                        <th>Assign Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {trains.map((train) => (
+                    {filteredTrains.map((train) => (
                         <tr key={train.id}>
+                            <td>{train.id.slice(-8)}</td>
                             <td>{train.trainName}</td>
                             <td>
                                 <table>
@@ -84,7 +93,7 @@ function TrainList() {
                                     </thead>
                                     <tbody>
                                         {train.classes.map((classData) => (
-                                            <tr key={classData.class}>
+                                            <tr key={classData.className}>
                                                 <td>{classData.className}</td>
                                                 <td>{classData.seats}</td>
                                                 <td>{classData.ticketPrice}</td>
@@ -93,13 +102,10 @@ function TrainList() {
                                     </tbody>
                                 </table>
                             </td>
+                            <td>{train.assignStatus}</td>
                             <td>
-                                <button onClick={() => handleDeleteTrain(train.id)}>Delete</button>
-                                {/* Add an edit button or link here with a route to edit the train */}
-                                {/* <Link to={`/editTrain/${train.id}`}>
-                                    <button>Edit</button>
-                                </Link> */}
                                 <button onClick={() => handleEditTrain(train.id)}>Edit</button>
+                                <button onClick={() => handleDeleteTrain(train.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}

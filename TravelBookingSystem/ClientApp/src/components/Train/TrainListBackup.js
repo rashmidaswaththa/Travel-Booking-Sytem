@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function TrainList() {
     const [trains, setTrains] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
 
     // Function to fetch the list of trains from the server
     const fetchTrains = async () => {
@@ -18,6 +20,12 @@ function TrainList() {
         } catch (error) {
             console.error('Error:', error);
         }
+    };
+
+    // Function to handle editing a train
+    const handleEditTrain = (id) => {
+        // Navigate to the edit page with the train's ID as a URL parameter
+        navigate(`/editTrain/${id}`);
     };
 
     useEffect(() => {
@@ -56,27 +64,44 @@ function TrainList() {
             <table>
                 <thead>
                     <tr>
+                        <th>Train ID</th>
                         <th>Train Name</th>
-                        <th>Classes</th>
+                        <th>Class Details</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {trains.map((train) => (
                         <tr key={train.id}>
+                            <td>{train.id.slice(-8)}</td>
                             <td>{train.trainName}</td>
                             <td>
-                                <ul>
-                                    {train.classes.map((classData) => (
-                                        <li key={classData.class}>
-                                            {`${classData.className}: Seats - ${classData.seats}, Price - ${classData.ticketPrice}`}
-                                        </li>
-                                    ))}
-                                </ul>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>No of Seats</th>
+                                            <th>Ticket Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {train.classes.map((classData) => (
+                                            <tr key={classData.class}>
+                                                <td>{classData.className}</td>
+                                                <td>{classData.seats}</td>
+                                                <td>{classData.ticketPrice}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
                             </td>
                             <td>
                                 <button onClick={() => handleDeleteTrain(train.id)}>Delete</button>
                                 {/* Add an edit button or link here with a route to edit the train */}
+                                {/* <Link to={`/editTrain/${train.id}`}>
+                                    <button>Edit</button>
+                                </Link> */}
+                                <button onClick={() => handleEditTrain(train.id)}>Edit</button>
                             </td>
                         </tr>
                     ))}

@@ -57,19 +57,16 @@ function AddSchedule() {
 
         try {
             // Extract the time part from the departureTime input
-            const departureTimePart = scheduleData.departureTime;
+            const departureTimePart = scheduleData.departureTime.split("T")[1];
+
             // Extract the time part from the arrivalTime input
-            const arrivalTimePart = scheduleData.arrivalTime;
+            const arrivalTimePart = scheduleData.arrivalTime.split("T")[1];
 
-            // Construct the full time strings with the scheduleDate
-            const formattedDepartureTime = new Date(`${scheduleData.scheduleDate}T${departureTimePart}`);
-            const formattedArrivalTime = new Date(`${scheduleData.scheduleDate}T${arrivalTimePart}`);
-
-            // Prepare the scheduleData object with the correctly formatted time values
+            // Prepare the scheduleData object with the correct format (time only)
             const formattedScheduleData = {
                 ...scheduleData,
-                departureTime: formattedDepartureTime.toISOString(),
-                arrivalTime: formattedArrivalTime.toISOString(),
+                departureTime: departureTimePart,
+                arrivalTime: arrivalTimePart,
                 scheduleStatus: "Not completed", // Set the default scheduleStatus
             };
 
@@ -108,7 +105,6 @@ function AddSchedule() {
             console.error("Error:", error);
         }
     };
-
 
     return (
         <div>
