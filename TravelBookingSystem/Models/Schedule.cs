@@ -26,5 +26,8 @@ namespace TravelBookingSystem.Models
 
         [BsonElement("scheduleDate")]
         public DateTime ScheduleDate { get; set; } = DateTime.Now;
+
+        [BsonElement("scheduleStatus")]
+        public string ScheduleStatus { get; set; } = "Not completed"; // Set default value for status
     }
 }

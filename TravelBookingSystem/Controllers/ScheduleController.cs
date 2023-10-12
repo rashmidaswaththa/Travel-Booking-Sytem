@@ -40,6 +40,9 @@ namespace TravelBookingSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateSchedule(Schedule newSchedule)
         {
+            // Set the scheduleStatus to "Not completed" explicitly
+            newSchedule.ScheduleStatus = "Not completed";
+
             await _scheduleService.CreateScheduleAsync(newSchedule);
             return CreatedAtAction(nameof(GetSchedule), new { id = newSchedule.Id }, newSchedule);
         }
