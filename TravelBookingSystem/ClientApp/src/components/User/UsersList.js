@@ -87,7 +87,7 @@ export default function UsersList() {
                                 <td>{user.email}</td>
                                 <td>{user.password}</td>
                                 <td>{user.role}</td>
-                                <td><a href={"/edituser?id=" + user.id}>Edit</a></td>
+                                <td><a href={"/editUser?id=" + user.id}>Edit</a></td>
                                 <td onClick={() => { openDeleteModal( user.id ); }}>Delete</td>
                             </tr>)
                     }

@@ -1,4 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 using System.ComponentModel.DataAnnotations;
 
@@ -27,4 +27,5 @@ namespace TravelBookingSystem.Models
         [Required]
         public string Role { get; set; } = "User Role";
     }
+
 }

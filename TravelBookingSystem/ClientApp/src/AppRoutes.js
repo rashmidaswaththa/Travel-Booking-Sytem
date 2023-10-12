@@ -9,6 +9,16 @@ import TravelersList from "./components/TravelersList";
 import UsersList from "./components/UsersList";
 import AddUser from "./components/AddUser";
 
+import  AddTraveler  from "./components/Traveler/AddTraveler";
+import  EditTraveler from "./components/Traveler/EditTraveler";
+import TravelersList from "./components/Traveler/TravelersList"
+
+//Import for User
+import UsersList from "./components/User/UsersList";
+import AddUser from "./components/User/AddUser";
+import EditUser from "./components/User/EditUser";
+
+
 //Imports for Train
 import AddTrain from "./components/Train/AddTrain";
 import TrainList from "./components/Train/TrainList";
@@ -66,6 +76,10 @@ const AppRoutes = [
   {
     path: '/addUser',
     element: <AddUser/>
+  },
+  {
+    path: '/editUser',
+    element: <EditUser/>
   }
 ];
 
