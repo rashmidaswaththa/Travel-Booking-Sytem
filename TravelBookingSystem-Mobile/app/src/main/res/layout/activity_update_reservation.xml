@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateReservationActivity">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/textView3"
+          android:layout_width="423dp"
+          android:layout_height="48dp"
+          android:background="#2196F3"
+          android:text="Update Reserve"
+          android:textAlignment="center"
+          android:textColor="#FFFFFF"
+          android:textSize="34sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/textView10"
+          android:layout_width="match_parent"
+          android:layout_height="45dp" />
+
+      <TextView
+          android:id="@+id/textView11"
+          android:layout_width="match_parent"
+          android:layout_height="35dp"
+          android:text="   Passenger NIC :"
+          android:textAlignment="viewStart"
+          android:textSize="20sp"
+          android:ems="10"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/nic_view"
+          android:layout_width="match_parent"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:layout_height="45dp"
+          android:elegantTextHeight="true"
+          android:textSize="20sp"
+          android:background="@drawable/round_border"
+          android:ems="10" />
+
+      <TextView
+          android:id="@+id/textView13"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+
+      <TextView
+          android:id="@+id/textView15"
+          android:layout_width="match_parent"
+          android:layout_height="35dp"
+          android:ems="10"
+          android:text="   Passenger Name :"
+          android:textAlignment="viewStart"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      <EditText
+          android:id="@+id/name_view"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:hint="  Enter name"
+          android:textSize="20sp"
+          android:background="@drawable/round_border"
+          android:ems="10"
+          android:inputType="textPersonName"/>
+
+      <TextView
+          android:id="@+id/textView17"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:id="@+id/textView16"
+          android:layout_width="match_parent"
+          android:layout_height="35dp"
+          android:ems="10"
+          android:text="   Date :"
+          android:textAlignment="viewStart"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/date_view"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:background="@drawable/round_border"
+          android:drawableRight="@drawable/baseline_edit_calendar_24"
+          android:ems="10"
+          android:textSize="20sp"
+          android:elegantTextHeight="true"
+          android:hint="  Select Date"
+          android:inputType="none" />
+
+      <TextView
+          android:id="@+id/textView19"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:id="@+id/textView18"
+          android:layout_width="match_parent"
+          android:layout_height="35dp"
+          android:ems="10"
+          android:text="   From to :"
+          android:textAlignment="viewStart"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      <Spinner
+          android:id="@+id/spinner1"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:background="@drawable/round_border"
+          android:drawableRight="@drawable/baseline_edit_calendar_24"
+          android:ems="10"
+          android:textSize="20sp"
+          android:elegantTextHeight="true"/>
+
+      <TextView
+          android:id="@+id/textView20"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:id="@+id/textView21"
+          android:layout_width="match_parent"
+          android:layout_height="35dp"
+          android:ems="10"
+          android:text="   Select Train :"
+          android:textAlignment="viewStart"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      <Spinner
+          android:id="@+id/spinner2"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:background="@drawable/round_border"
+          android:drawableRight="@drawable/baseline_edit_calendar_24"
+          android:elegantTextHeight="true"
+          android:ems="10"
+          android:textSize="20sp" />
+
+      <TextView
+          android:id="@+id/textView23"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:id="@+id/textView22"
+          android:layout_width="match_parent"
+          android:layout_height="35dp"
+          android:ems="10"
+          android:text="   Seats count :"
+          android:textAlignment="viewStart"
+          android:textSize="20sp"
+          android:textStyle="bold" />
+
+      <EditText
+          android:id="@+id/count_view"
+          android:layout_width="match_parent"
+          android:layout_height="45dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:background="@drawable/round_border"
+          android:ems="10"
+          android:hint="  Enter Seats Count"
+          android:inputType="number"
+          android:textSize="20sp" />
+
+      <TextView
+          android:id="@+id/textView24"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+      <Button
+          android:id="@+id/booking_btn"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          android:layout_marginLeft="10dp"
+          android:layout_marginRight="10dp"
+          android:text="Update"
+          android:textSize="20sp" />
+
+    </LinearLayout>
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
